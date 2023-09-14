@@ -1,0 +1,26 @@
+<app-search></app-search>
+<app-not-found [visible]="!rooms || !rooms.length" resetLinkText="Reset Search"></app-not-found>
+<ul>
+    <li *ngFor="let room of rooms">
+        <a routerLink="/room/{{room.id}}">
+            <img [src]="room.imageUrl" [alt]="room.name">
+            <div class="content">
+                <div class="name">
+                    {{room.name}}
+                </div>
+                <span class="favourite {{room.favourite?'':'not'}}">♥</span>
+                
+                <div class="room-item-footer">
+                    <div class="living-Time">
+                        <span>📅</span>
+                        {{room.livingPeriod}}
+                    </div>
+                    <div class="price">
+                        <span>₹</span>
+                        {{room.price}}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,18 @@
+<app-not-found [visible]="!room" notFoundMessage="Rooms Not Found" resetLinkText="Back to Home"></app-not-found>
+<div *ngIf="room" class="container">
+    <img [src]="room.imageUrl" [alt]="room.name"/>
+    <div class="details">
+        <div class="header">
+            <span class ="name">
+                {{room.name}}
+            </span>
+            <span class="favourite {{room.favourite? '':'not'}}">♥</span>
+        </div>
+        <div class="price">
+            <span>
+                {{room.price | currency}}
+            </span>
+        </div>
+        <button (click)="addToCart()">Add to visit</button>
+    </div>
+</div>
